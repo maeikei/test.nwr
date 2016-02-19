@@ -1,31 +1,17 @@
-
 <!DOCTYPE HTML> 
 <html lang="en"> 
 <head>
 <title>PeerJS chat demo</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
 <meta http-equiv="Content-Language" content="en-us"> 
-
-<link href="fancy.css" rel="stylesheet" type="text/css">
-
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-<script type="text/javascript" src="../dist/peer.js"></script>
+<script type="text/javascript" src="./peer.js"></script>
 <script>
 // Connect to PeerJS, have server assign an ID instead of providing one
 // Showing off some of the configs available with PeerJS :).
 var peer = new Peer({
-  // Set API key for cloud server (you don't need this if you're running your
-  // own.
-  key: 'x7fwx2kavpy6tj4i',
-
-  // Set highest debug level (log everything!).
+  host:'192.168.11.100'
   debug: 3,
-
-  // Set a logging function:
-  logFunction: function() {
-    var copy = Array.prototype.slice.call(arguments).join(' ');
-    $('.log').append(copy + '<br>');
-  }
 });
 var connectedPeers = {};
 
@@ -189,39 +175,9 @@ window.onunload = window.onbeforeunload = function(e) {
 </script>
 </head> 
  
-<body> 
-  <a href="https://github.com/peers/peerjs"><img style="position: absolute; top: 0; right: 0; border: 0;"
-    src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"
-    alt="Fork me on GitHub"></a>
-
-  <div id="actions">
-    Your PeerJS ID is <span id="pid"></span><br>
-    Connect to a peer: <input type="text" id="rid" placeholder="Someone else's id"><input class="button" type="button" value="Connect" id="connect"><br><br>
-
-    <form id="send">
-      <input type="text" id="text" placeholder="Enter message"><input class="button" type="submit" value="Send to selected peers">
-    </form>
-    <button id="close">Close selected connections</button>
-  </div>
-
-  <div id="wrap"><div id="connections"><span class="filler">You have not yet
-        made any connections.</span></div>
-    <div class="clear"></div></div>
-
-  <div id="box" style="background: #fff; font-size: 18px;padding:40px 30px; text-align: center;">
-    Drag file here to send to active connections.
-  </div>
-  
-  
-  <div class="warning browser">
-    <div class="important">Your browser version: <span id="browsers"></span><br>
-  Currently <strong>Firefox 22+ and Google Chrome 26.0.1403.0 or above</strong> is required.</strong></div>For more up to date compatibility
-information see <a href="http://peerjs.com/status">PeerJS WebRTC
-  Status</a><br>Note that this demo may also fail if you are behind
-stringent firewalls or both you and the remote peer and behind symmetric
-NATs.
-
-<div class="log" style="color:#FF7500;text-shadow:none;padding:15px;background:#eee"><strong>Connection status</strong>:<br></div>
-</div>
+<body>
+  <div>
+    <video id="remote"></vidoe>
+  </div> 
 </body> 
 </html> 
