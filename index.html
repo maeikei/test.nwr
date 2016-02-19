@@ -6,9 +6,11 @@
 <meta http-equiv="Content-Language" content="en-us"> 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="./peer.js"></script>
-<script>
 
-var peer = new Peer('11111fkdk',{
+<script>
+$(document).ready( function() {
+
+var peer = new Peer({
   host:'192.168.11.100',
   debug: 3,
 });
@@ -17,6 +19,7 @@ var connectedPeers = {};
 // Show this peer's ID.
 peer.on('open', function(id){
   console.log(id);
+  $('#myid').text(id);
 });
 
 // Await connections from others
@@ -30,9 +33,10 @@ peer.on('error', function(err) {
 function connect(c) {
   console.log(c);
 }
-$(document).ready( function() {
+
+
   $('#start').click(function() {
-    var conn = peer.connect('2222fkdk');
+    var conn = peer.connect('');
   });
 });
 
@@ -41,6 +45,7 @@ $(document).ready( function() {
 </head> 
  
 <body>
+  <div id="myid">---------</div> 
   <div>
     <input type="button" id="start" value="start" />
   </div> 
