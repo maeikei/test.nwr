@@ -1,9 +1,7 @@
 var fs = require('fs');
 var PeerServer = require('peer').PeerServer;
 
-var server = PeerServer({
-  port: 9000
-});
+var server = PeerServer({port: 9000,debug:true});
 server.on('connection', function(id) {
   console.log('connection:id=<' + id + '>');
 });
