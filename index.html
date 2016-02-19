@@ -37,7 +37,9 @@ function connect(c) {
 
   $('#start').click(function() {
     var id = $('#you').text();
+    console.log(id);
     var conn = peer.connect(id);
+    console.log(conn);
   });
 });
 
