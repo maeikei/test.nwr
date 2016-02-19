@@ -36,7 +36,8 @@ function connect(c) {
 
 
   $('#start').click(function() {
-    var conn = peer.connect('');
+    var id = $('#you').text();
+    var conn = peer.connect(id);
   });
 });
 
@@ -46,6 +47,9 @@ function connect(c) {
  
 <body>
   <div id="myid">---------</div> 
+  <div>
+    <input type="text" id="you" value="0" />
+  </div> 
   <div>
     <input type="button" id="start" value="start" />
   </div> 
