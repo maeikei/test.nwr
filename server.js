@@ -22,9 +22,9 @@ server.listen(9000);
 
 
 
-ExpressPeerServer.on('connection', function(id) {
+server.on('connection', function(id) {
   console.log('connection' + id);
 });
-ExpressPeerServer.on('disconnect', function(id) {
+server.on('disconnect', function(id) {
   console.log('disconnect' + id);
 });
