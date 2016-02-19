@@ -6,3 +6,10 @@ var server = PeerServer({
   path: '/peer',
   proxied: true
 });
+
+server.on('connection', function(id) {
+  console.log('connection' + id);
+});
+server.on('disconnect', function(id) {
+  console.log('disconnect' + id);
+});
